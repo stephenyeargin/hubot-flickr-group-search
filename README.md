@@ -26,6 +26,12 @@ Then add **hubot-flickr-group-search** to your `external-scripts.json`:
 
 ## Sample Interaction
 
+### Slack
+
+![screen shot 2017-01-11 at 9 34 19 pm](https://cloud.githubusercontent.com/assets/80459/21876058/ccbff0e0-d845-11e6-8a7e-6218853f69a0.png)
+
+### IRC / Hipchat
+
 ```
 user1>> hubot photos hotdog
 hubot>>  There are 8 photos in the group that match your search. Here are the 5 most recent:
