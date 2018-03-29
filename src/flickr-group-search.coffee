@@ -3,7 +3,6 @@
 #
 # Configuration:
 #   HUBOT_FLICKR_API_KEY - API key
-#   HUBOT_FLICKR_API_SECRET - API secret
 #   HUBOT_FLICKR_GROUP_ID - Group ID to search
 #
 # Commands:
@@ -12,14 +11,11 @@
 # Author:
 #   Stephen Yeargin <stephen.yeargin@gmail.com>
 
-_ = require 'underscore'
+_ = require 'lodash'
 Flickr = require 'flickr-sdk'
 
 # Configure the library
-flickr = new Flickr(
-  "apiKey":            process.env.HUBOT_FLICKR_API_KEY,
-  "apiSecret":         process.env.HUBOT_FLICKR_API_SECRET,
-)
+flickr = new Flickr(process.env.HUBOT_FLICKR_API_KEY)
 
 module.exports = (robot) ->
   isSlack = robot.adapterName == 'slack'
@@ -30,11 +26,8 @@ module.exports = (robot) ->
 
     msg.reply "Retrieving photos matching: \"#{msg.match[1]}\""
     # Making the request from Flickr
-    flickr
-      .request()
-      .media()
-      .search(msg.match[1])
-      .get(
+    flickr.photos.search(
+        text: msg.match[1]
         page: 1,
         per_page: 5,
         group_id: process.env.HUBOT_FLICKR_GROUP_ID,
@@ -45,17 +38,21 @@ module.exports = (robot) ->
         attachments = []
         irc_list = []
 
-        robot.logger.debug response.body.photos
+        results = JSON.parse(response.text)
+
+        # Malformed response
+        unless results.photos?
+          return msg.send "Empty response from API."
 
         # Put together the count summary
-        count = response.body.photos.photo.length
+        count = results.photos.photo.length
         if count == 0
           return msg.send "No photos found. :cry:"
 
-        summary = "There are #{response.body.photos.total} photos in the group that match your search. Here are the #{count} most recent:"
+        summary = "There are #{results.photos.total} photos in the group that match your search. Here are the #{count} most recent:"
 
         # Loop through the response
-        _(response.body.photos.photo).each (photo, i) ->
+        _(results.photos.photo).each (photo, i) ->
           # Piece together from the photos
           photo_src = "https://c1.staticflickr.com/#{photo.farm}/#{photo.server}/#{photo.id}_#{photo.secret}_b.jpg"
           photo_url = "https://flickr.com/photos/#{photo.owner}/#{photo.id}"
@@ -87,18 +84,16 @@ module.exports = (robot) ->
           msg.reply summary
           msg.send irc_list.join("\n")
 
-      ), (err) ->
+      )
+      .catch (err) ->
         msg.reply "Sorry, unable to retrieve photos. :cry:"
-        robot.logger.err
+        robot.logger.error err
 
   # Check for required config
   missingEnvironmentForApi = (msg) ->
     missingAnything = false
     unless process.env.HUBOT_FLICKR_API_KEY?
       msg.send "Flickr API Key is missing: Ensure that HUBOT_FLICKR_API_KEY is set."
-      missingAnything |= true
-    unless process.env.HUBOT_FLICKR_API_SECRET?
-      msg.send "Flickr API Secret is missing: Ensure that HUBOT_FLICKR_API_SECRET is set."
       missingAnything |= true
     unless process.env.HUBOT_FLICKR_GROUP_ID?
       msg.send "Flickr Group ID is missing: Ensure that HUBOT_FLICKR_GROUP_ID is set."
