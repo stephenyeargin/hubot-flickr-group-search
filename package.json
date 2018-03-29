@@ -1,7 +1,7 @@
 {
   "name": "hubot-flickr-group-search",
   "description": "Search a specified Flickr group for photos.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Stephen Yeargin <stephen.yeargin@gmail.com>",
   "license": "MIT",
   "keywords": "hubot, hubot-scripts, flickr, photos, groups",
