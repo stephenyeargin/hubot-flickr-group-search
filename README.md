@@ -21,7 +21,6 @@ Then add **hubot-flickr-group-search** to your `external-scripts.json`:
 | Environment Variable | Description |
 | -------------------- | ----------- |
 | HUBOT_FLICKR_API_KEY | API key (registered with Flickr) |
-| HUBOT_FLICKR_API_SECRET | API secret (registered with Flickr) |
 | HUBOT_FLICKR_GROUP_ID | Group ID to search; Found as "recent groups" on API page |
 
 ## Sample Interaction
