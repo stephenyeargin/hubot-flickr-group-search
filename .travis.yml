@@ -1,12 +1,11 @@
 language: node_js
-node_js:
-  - "node"
-  - "6"
-  - "5"
-  - "4"
 sudo: false
+notifications:
+  email: false
+node_js:
+  - "10" # stable
+  - "8" # LTS
+  - "6" # maintenance
 cache:
   directories:
     - node_modules
-notifications:
-  email: false
