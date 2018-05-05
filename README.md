@@ -1,5 +1,7 @@
 # Hubot Flickr Group Search
 
+[![npm version](https://badge.fury.io/js/hubot-flickr-group-search.svg)](http://badge.fury.io/js/hubot-flickr-group-search) [![Build Status](https://travis-ci.org/stephenyeargin/hubot-flickr-group-search.png)](https://travis-ci.org/stephenyeargin/hubot-flickr-group-search)
+
 Search a specified Flickr group for photos.
 
 ## Installation
@@ -18,10 +20,10 @@ Then add **hubot-flickr-group-search** to your `external-scripts.json`:
 
 ## Configuration Values
 
-| Environment Variable | Description |
-| -------------------- | ----------- |
-| HUBOT_FLICKR_API_KEY | API key (registered with Flickr) |
-| HUBOT_FLICKR_GROUP_ID | Group ID to search; Found as "recent groups" on API page |
+| Environment Variable  | Required? | Description                              |
+| --------------------- | :-------: | ---------------------------------------- |
+| HUBOT_FLICKR_API_KEY  | Yes       | API key (registered with Flickr)         |
+| HUBOT_FLICKR_GROUP_ID | Yes       | Group ID to search; Found as "recent groups" on API page |
 
 ## Sample Interaction
 
