@@ -1,6 +1,6 @@
 # Hubot Flickr Group Search
 
-[![npm version](https://badge.fury.io/js/hubot-flickr-group-search.svg)](http://badge.fury.io/js/hubot-flickr-group-search) [![Build Status](https://app.travis-ci.com/stephenyeargin/hubot-flickr-group-search.png)](https://app.travis-ci.com/stephenyeargin/hubot-flickr-group-search)
+[![npm version](https://badge.fury.io/js/hubot-flickr-group-search.svg)](http://badge.fury.io/js/hubot-flickr-group-search) [![Node CI](https://github.com/stephenyeargin/hubot-flickr-group-search/actions/workflows/nodejs.yml/badge.svg)](https://github.com/stephenyeargin/hubot-flickr-group-search/actions/workflows/nodejs.yml)
 
 Search a specified Flickr group for photos.
 
