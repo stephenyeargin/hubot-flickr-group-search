@@ -20,27 +20,31 @@
     "url": "https://github.com/stephenyeargin/hubot-flickr-group-search/issues"
   },
   "dependencies": {
-    "flickr-sdk": "^6.0.0",
+    "flickr-sdk": "^6.2.1",
     "lodash": "^4.17.21"
   },
   "peerDependencies": {
-    "hubot": "^3"
+    "hubot": "^4 || ^3"
   },
   "devDependencies": {
     "chai": "^4.3.7",
-    "coffee-script": "^1.12.7",
+    "eslint": "^8.40.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-chai-expect": "^3.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-mocha": "^10.1.0",
     "hubot-test-helper": "^1.9.0",
     "husky": "^8.0.3",
     "mocha": "^10.2.0",
-    "nock": "^13.3.0",
-    "release-it": "^15.6.0",
-    "sinon": "^15.0.1",
+    "nock": "^13.3.1",
+    "release-it": "^15.10.3",
+    "sinon": "^15.0.4",
     "sinon-chai": "^3.7.0"
   },
-  "main": "index.coffee",
+  "main": "index.js",
   "scripts": {
     "release": "release-it",
-    "test": "mocha --require coffee-script/register \"test/**/*.coffee\" --reporter spec",
+    "test": "mocha \"test/**/*.js\" --reporter spec",
     "prepare": "husky install"
   }
 }
