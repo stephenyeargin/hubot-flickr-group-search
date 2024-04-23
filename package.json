@@ -20,7 +20,7 @@
     "url": "https://github.com/stephenyeargin/hubot-flickr-group-search/issues"
   },
   "dependencies": {
-    "flickr-sdk": "^6.2.1",
+    "flickr-sdk": "^7.0.0-beta.7",
     "lodash": "^4.17.21"
   },
   "peerDependencies": {
