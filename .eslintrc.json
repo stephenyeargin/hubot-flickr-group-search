@@ -11,9 +11,21 @@
         "ecmaVersion": "latest"
     },
     "rules": {
-    },
-    "plugins": [
-      "mocha",
-      "chai-expect"
-    ]
+        "max-len": ["error", {
+            "code": 100,
+            "ignoreComments": true,
+            "ignoreUrls": true,
+            "ignoreStrings": true,
+            "ignoreTemplateLiterals": true,
+            "ignoreRegExpLiterals": true
+        }],
+        "consistent-return": "off",
+        "camelcase": "off",
+        "no-var": "off",
+        "vars-on-top": "off",
+        "no-return-assign": "off",
+        "no-bitwise": "off",
+        "no-useless-escape": "off",
+        "no-unused-vars": ["error", { "argsIgnorePattern": "^_|^i$" }]
+    }
 }

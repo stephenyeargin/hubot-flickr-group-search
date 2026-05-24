@@ -27,25 +27,21 @@
     "hubot": ">=3 || 0.0.0-development"
   },
   "devDependencies": {
-    "chai": "^4.3.7",
     "eslint": "^8.45.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-chai-expect": "^3.0.0",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-mocha": "^10.1.0",
-    "hubot-test-helper": "^1.9.0",
+    "hubot": "^14",
     "husky": "^8.0.3",
-    "mocha": "^10.2.0",
-    "nock": "^13.3.2",
-    "sinon": "^15.2.0",
-    "sinon-chai": "^3.7.0"
+    "nock": "^13.3.2"
   },
   "main": "index.js",
   "scripts": {
+    "lint": "eslint src test",
+    "lint:fix": "eslint --fix src test",
     "test": "script/test",
     "prepare": "husky install"
   },
   "volta": {
-    "node": "18.19.0"
+    "node": "22.22.3"
   }
 }
